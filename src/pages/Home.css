@@ -1,0 +1,7 @@
+.main__container{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: #817AC7;
+    
+}

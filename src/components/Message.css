@@ -1,0 +1,30 @@
+.message {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user__image {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+  }
+  
+  .message__info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EAEBF1;
+    font-weight: lighter;
+    color: black;
+    height: 25px;
+    padding: 8px;
+  }
+  
+  .message__user {
+    color: black;
+    margin-right: 8px;
+  }
+  
+  .header__section {
+    margin: 10px;
+  }
