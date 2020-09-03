@@ -4,6 +4,7 @@ import {Input, Button} from '@material-ui/core'
 import db from '../Fire'
 import {timestamp} from '../Fire'
 import { AuthContext } from '../context/AuthContext'
+import firebase from 'firebase'
 
 function InputField({channelId}) {
     const [text, setText] = useState("")
@@ -16,7 +17,7 @@ function InputField({channelId}) {
             await db.collection('rooms').doc(channelId).collection('messages').add({
                 user: currentUser.displayName,
                 message: text, 
-                timestamp: timestamp,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                 userImage: currentUser.photoURL
             })
         }
