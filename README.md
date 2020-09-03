@@ -1,3 +1,5 @@
+The project is available at this link: https://slack-clone-e9eae.web.app
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
