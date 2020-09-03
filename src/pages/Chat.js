@@ -68,7 +68,7 @@ function Chat() {
                 </div>
                 <div className="profile__container">
                     <div className="profile__header">
-                        <Avatar alt="#" src={currentUser?.photoURL} style={{width: 100, height: 100, marginLeft: 25}} />
+                        <Avatar alt="#" src={currentUser?.photoURL} style={{width: 100, height: 100, marginLeft: 30, alignSelf: 'center'}} />
                         <h1>{currentUser?.displayName}</h1>
                         <p>{currentUser?.email}</p>
                     </div>

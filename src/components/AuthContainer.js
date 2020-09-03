@@ -3,6 +3,7 @@ import './AuthContainer.css'
 import {Button} from '@material-ui/core'
 import {auth, provider} from '../Fire'
 import {useHistory} from 'react-router-dom'
+import db from '../Fire'
 
 function AuthContainer(props) {
     
@@ -12,6 +13,11 @@ function AuthContainer(props) {
         try {
             const res = await auth.signInWithPopup(provider)             
             console.log(res)
+            db.collection('users').add({
+                name: res.user.displayName,
+                email: res.user.email,
+                profileImage: res.user.photoURL
+            })
             history.push('/rooms/:id')    
         } catch (error) {
             return alert(error.message)
