@@ -8,15 +8,15 @@ function AuthContainer(props) {
     
     const history = useHistory()
 
-    const googleSignIn = () => {
-        auth.signInWithPopup(provider)             
-        .then((res) => {
+    const googleSignIn = async () => {
+        try {
+            const res = await auth.signInWithPopup(provider)             
             console.log(res)
-            history.push('/rooms/:id')
-        })
-        .catch(err => {
-            return alert(err.message)
-        })
+            history.push('/rooms/:id')    
+        } catch (error) {
+            return alert(error.message)
+        }
+        
     }  
         
         // try {

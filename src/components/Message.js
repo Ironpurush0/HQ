@@ -12,7 +12,6 @@ function Message({ message, timestamp, user, userImage }) {
         <h4 className="message__user">{user}</h4>
         <p>{message}</p>
       </div>
-  <p>{moment(timestamp).fromNow()}</p>
     </div>
   );
 }

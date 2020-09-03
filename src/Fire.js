@@ -2,17 +2,9 @@ import * as firebase  from 'firebase'
 
 import 'firebase/firebase-auth'
 import 'firebase/firebase-firestore'
+import { CONFIG } from './config'
 
-const firebaseConfig = {
-    apiKey: "AIzaSyCMEeWloCzwzG95le8IJYhDl3NpfQ9vswY",
-    authDomain: "slack-clone-e9eae.firebaseapp.com",
-    databaseURL: "https://slack-clone-e9eae.firebaseio.com",
-    projectId: "slack-clone-e9eae",
-    storageBucket: "slack-clone-e9eae.appspot.com",
-    messagingSenderId: "970522264446",
-    appId: "1:970522264446:web:db496abb7beff71756692f",
-    measurementId: "G-48X6XT00D6"
-  };
+const firebaseConfig = CONFIG
 
 firebase.initializeApp(firebaseConfig)
 
