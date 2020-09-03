@@ -1,23 +1,25 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {Route, Redirect} from 'react-router-dom'
-import {useStateValue} from './context/StateProvider'
+import {AuthContext} from './context/AuthContext'
 
 function ProtectedRoute({component: Component, ...rest}) {
-    const [{user}] = useStateValue()
+    const {currentUser} = useContext(AuthContext)
+
     return (
         <Route 
         {...rest}
         render={props => {
-            if(!user) {
+            if(currentUser){
+                return <Route {...props} />
+            } else {
                 return <Redirect to={{
                     pathname: '/',
                     state: {
                         from: props.location
                     }
                 }} />
-            } else {
-                return <Component {...props} />
             }
+                
         }} />        
     )
 }

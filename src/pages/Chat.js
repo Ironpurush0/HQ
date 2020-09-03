@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {useParams, useHistory} from 'react-router-dom'
 import './Chat.css'
 import Header from '../components/Header'
@@ -11,13 +11,15 @@ import Message from '../components/Message'
 import db, {auth} from '../Fire'
 import { useStateValue } from '../context/StateProvider'
 import {actionTypes} from '../context/Reducer'
+import { AuthContext } from '../context/AuthContext'
 
 function Chat() {
     const history = useHistory()
-    const [{user}, dispatch] = useStateValue()
+    const {currentUser} = useContext(AuthContext)
     const {id} = useParams()
     const [roomDetails, setRoomDetails] = useState(null)
     const [roomMessages, setRoomMessages] = useState([])
+   
 
     useEffect(() => {
         if(id){
@@ -35,12 +37,10 @@ function Chat() {
 
     const logout = async () => {
        const res = await auth.signOut()
-        dispatch({
-            type: actionTypes.LOG_OUT,
-            user: null
-        })
+        console.log(res)
         history.push('/')
     }
+
 
     console.log(roomDetails)
     console.log("MESSAGES>>", roomMessages)
@@ -70,9 +70,9 @@ function Chat() {
                 </div>
                 <div className="profile__container">
                     <div className="profile__header">
-                        <Avatar alt="#" src={user?.photoURL} style={{width: 100, height: 100, marginLeft: 25}} />
-                        <h1>{user?.displayName}</h1>
-                        <p>{user?.email}</p>
+                        <Avatar alt="#" src={currentUser?.photoURL} style={{width: 100, height: 100, marginLeft: 25}} />
+                        <h1>{currentUser?.displayName}</h1>
+                        <p>{currentUser?.email}</p>
                     </div>
                     <Button onClick={logout} style={{marginBottom: 20, backgroundColor: '#6AD427', borderRadius: 20, padding: 10, color: 'white'}}>Logout</Button>           
                 </div>

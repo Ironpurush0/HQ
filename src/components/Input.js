@@ -1,23 +1,24 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import './Input.css'
 import {Input, Button} from '@material-ui/core'
 import db from '../Fire'
 import {timestamp} from '../Fire'
 import {useStateValue} from '../context/StateProvider'
+import { AuthContext } from '../context/AuthContext'
 
 function InputField({channelId}) {
     const [text, setText] = useState("")
-    const [{user}] = useStateValue()
+    const {currentUser} = useContext(AuthContext)
 
     const sendText = async (e) => {
         e.preventDefault()
 
         if(channelId){
             await db.collection('rooms').doc(channelId).collection('messages').add({
-                user: user.displayName,
+                user: currentUser.displayName,
                 message: text, 
                 timestamp: timestamp,
-                userImage: user.photoURL
+                userImage: currentUser.photoURL
             })
         }
         setText("")
