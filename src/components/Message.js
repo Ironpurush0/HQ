@@ -1,6 +1,6 @@
 import React from "react";
 import "./Message.css";
-
+import moment from 'moment'
 
 function Message({ message, timestamp, user, userImage }) {
   return (
@@ -12,6 +12,7 @@ function Message({ message, timestamp, user, userImage }) {
         <h4 className="message__user">{user}</h4>
         <p>{message}</p>
       </div>
+  <p>{moment(timestamp).fromNow()}</p>
     </div>
   );
 }

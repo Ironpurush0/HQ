@@ -3,7 +3,6 @@ import './Input.css'
 import {Input, Button} from '@material-ui/core'
 import db from '../Fire'
 import {timestamp} from '../Fire'
-import {useStateValue} from '../context/StateProvider'
 import { AuthContext } from '../context/AuthContext'
 
 function InputField({channelId}) {

@@ -1,11 +1,8 @@
 import React from 'react'
-import * as firebase from 'firebase'
 import './AuthContainer.css'
 import {Button} from '@material-ui/core'
 import {auth, provider} from '../Fire'
-import {actionTypes} from '../context/Reducer'
-import {useStateValue} from '../context/StateProvider'
-import {useHistory, Re} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
 function AuthContainer(props) {
     

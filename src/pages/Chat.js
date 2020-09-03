@@ -9,8 +9,6 @@ import {Avatar, Button} from '@material-ui/core'
 import Message from '../components/Message'
 
 import db, {auth} from '../Fire'
-import { useStateValue } from '../context/StateProvider'
-import {actionTypes} from '../context/Reducer'
 import { AuthContext } from '../context/AuthContext'
 
 function Chat() {
